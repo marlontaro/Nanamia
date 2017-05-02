@@ -35,7 +35,7 @@ namespace Nanamia.Business
         public UsuarioApoderadoOutput Token(string token)
         {
             UsuarioApoderadoOutput login = new UsuarioApoderadoOutput();
-            login = usuarioApoderadoRepository.Create(user);
+            login = usuarioApoderadoRepository.Token(token);
             return login;
         }
 

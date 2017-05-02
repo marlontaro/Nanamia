@@ -113,6 +113,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\MessageError.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +129,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nanamia.Business\Nanamia.Business.csproj">
+      <Project>{AD4A979C-A421-4817-86BB-D7BF913561A3}</Project>
+      <Name>Nanamia.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nanamia.Model\Nanamia.Model.csproj">
+      <Project>{D6FDF676-7D81-4E9F-A459-F432C4FE094F}</Project>
+      <Name>Nanamia.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
