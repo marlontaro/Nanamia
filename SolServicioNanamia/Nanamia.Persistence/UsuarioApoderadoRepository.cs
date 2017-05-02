@@ -11,9 +11,11 @@ namespace Nanamia.Persistence
 {
     public class UsuarioApoderadoRepository : BaseRepository
     {
-        public CheckStatus Create(UsuarioApoderado user)
+        public UsuarioApoderadoOutput Create(UsuarioApoderado user)
         {
-            CheckStatus checkstatus = new CheckStatus();
+        
+            UsuarioApoderadoOutput login = new UsuarioApoderadoOutput();
+
             try
             {
                 using (IDbConnection connection = OpenConnection())
@@ -27,28 +29,35 @@ namespace Nanamia.Persistence
                     oParams.Add("Tipo", user.tipo);
                     oParams.Add("Correo", user.correo);
 
-                    oParams.Add("Password", user.password);                 
-                    oParams.Add("Token", dbType: DbType.String, direction: ParameterDirection.Output);
+                    oParams.Add("Password", user.password);
 
- 
-                    connection.Execute("uspUsuarioApoderadoCreate",
-                                   oParams,
-                                   commandType: CommandType.StoredProcedure);
+                    login = connection.Query<UsuarioApoderadoOutput>(
+                               "uspUsuarioApoderadoCreate",
+                               oParams,
+                               commandType: CommandType.StoredProcedure).FirstOrDefault();
 
 
-                    checkstatus.status = Status.Ok;
-                    checkstatus.id = oParams.Get<string>("Token");
-                    checkstatus.message = "";
-                    
+
+                    if (login == null)
+                    {
+                        login = new UsuarioApoderadoOutput();
+                        login.mensaje = "Error al registrar usuario";
+                        login.estado = Status.Error;
+                    }
+                    else
+                    {
+                        login.estado = Status.Ok;
+                    }
+
                 }
 
             } catch (Exception ex)
             {
-                checkstatus.status = Status.Error ;
-                checkstatus.message = "Error al registrar, por favor revise su datos ingresados.";
+                login.estado = Status.Error ;
+                login.mensaje = "Error al registrar, por favor revise su datos ingresados.";
             }
 
-            return checkstatus;
+            return login;
 
         }
 
@@ -69,7 +78,15 @@ namespace Nanamia.Persistence
                                 commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
 
-            
+            if (login == null)
+            {
+                login = new UsuarioApoderadoOutput();
+                login.mensaje = "Login invalido";
+                login.estado = Status.Error;
+            }
+            else {
+                login.estado = Status.Ok;
+            }
 
             return login;
         }
@@ -85,12 +102,21 @@ namespace Nanamia.Persistence
                 oParams.Add("token", token);
 
                 login = connection.Query<UsuarioApoderadoOutput>(
-                                "uspUsuarioApoderadoLogin",
+                                "uspTokenLogin",
                                 oParams,
                                 commandType: CommandType.StoredProcedure).FirstOrDefault();
             }
 
-
+            if (login == null)
+            {
+                login = new UsuarioApoderadoOutput();
+                login.mensaje = "Token invalido";
+                login.estado = Status.Error;
+            }
+            else
+            {
+                login.estado = Status.Ok;
+            }
 
             return login;
         }
