@@ -3,8 +3,52 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{BBB0EEE4-C4B9-4B53-A895-9FA802891A74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nanamia.Presentation.WebService", "Nanamia.Presentation.WebService\Nanamia.Presentation.WebService.csproj", "{B62DAF55-DB6C-4B9B-861C-D9FB44E0AA7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Business", "2. Business", "{665CE4A9-8B4E-479E-B60D-727788A6A691}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Persistence", "3. Persistence", "{DDEA1D87-5C47-4184-B3E8-C809F94C853D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Model", "4. Model", "{47F2636B-30FE-4ECB-978B-51E5B8487D21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nanamia.Business", "Nanamia.Business\Nanamia.Business.csproj", "{AD4A979C-A421-4817-86BB-D7BF913561A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nanamia.Persistence", "Nanamia.Persistence\Nanamia.Persistence.csproj", "{492CACC8-A286-47BD-8DEF-E2AA0799640A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nanamia.Model", "Nanamia.Model\Nanamia.Model.csproj", "{D6FDF676-7D81-4E9F-A459-F432C4FE094F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B62DAF55-DB6C-4B9B-861C-D9FB44E0AA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62DAF55-DB6C-4B9B-861C-D9FB44E0AA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62DAF55-DB6C-4B9B-861C-D9FB44E0AA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62DAF55-DB6C-4B9B-861C-D9FB44E0AA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4A979C-A421-4817-86BB-D7BF913561A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4A979C-A421-4817-86BB-D7BF913561A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4A979C-A421-4817-86BB-D7BF913561A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4A979C-A421-4817-86BB-D7BF913561A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{492CACC8-A286-47BD-8DEF-E2AA0799640A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{492CACC8-A286-47BD-8DEF-E2AA0799640A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{492CACC8-A286-47BD-8DEF-E2AA0799640A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{492CACC8-A286-47BD-8DEF-E2AA0799640A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6FDF676-7D81-4E9F-A459-F432C4FE094F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6FDF676-7D81-4E9F-A459-F432C4FE094F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6FDF676-7D81-4E9F-A459-F432C4FE094F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6FDF676-7D81-4E9F-A459-F432C4FE094F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B62DAF55-DB6C-4B9B-861C-D9FB44E0AA7E} = {BBB0EEE4-C4B9-4B53-A895-9FA802891A74}
+		{AD4A979C-A421-4817-86BB-D7BF913561A3} = {665CE4A9-8B4E-479E-B60D-727788A6A691}
+		{492CACC8-A286-47BD-8DEF-E2AA0799640A} = {DDEA1D87-5C47-4184-B3E8-C809F94C853D}
+		{D6FDF676-7D81-4E9F-A459-F432C4FE094F} = {47F2636B-30FE-4ECB-978B-51E5B8487D21}
 	EndGlobalSection
 EndGlobal
