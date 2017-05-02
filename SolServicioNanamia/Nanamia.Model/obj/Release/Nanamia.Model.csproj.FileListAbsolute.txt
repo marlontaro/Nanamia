@@ -1,0 +1,5 @@
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Model\bin\Release\Nanamia.Model.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Model\bin\Release\Nanamia.Model.pdb
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Model\obj\Release\Nanamia.Model.csprojResolveAssemblyReference.cache
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Model\obj\Release\Nanamia.Model.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Model\obj\Release\Nanamia.Model.pdb

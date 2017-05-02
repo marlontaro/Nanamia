@@ -1,0 +1,9 @@
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\bin\Debug\Nanamia.Business.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\bin\Debug\Nanamia.Business.pdb
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\bin\Debug\Nanamia.Model.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\bin\Debug\Nanamia.Persistence.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\bin\Debug\Nanamia.Model.pdb
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\bin\Debug\Nanamia.Persistence.pdb
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\obj\Debug\Nanamia.Business.csprojResolveAssemblyReference.cache
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\obj\Debug\Nanamia.Business.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Business\obj\Debug\Nanamia.Business.pdb

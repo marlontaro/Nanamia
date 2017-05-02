@@ -30,16 +30,7 @@ namespace Nanamia.Presentation.WebService.Controllers
                 Content = new StringContent(JObject.FromObject(new MessageError()).ToString(), Encoding.UTF8, "application/json")
             };
         }
-
-        [HttpGet]
-        public HttpResponseMessage Get(int id)
-        {
-            return new HttpResponseMessage(HttpStatusCode.BadRequest)
-            {
-                Content = new StringContent(JObject.FromObject(new MessageError()).ToString(), Encoding.UTF8, "application/json")
-            };
-        }
-
+ 
         [System.Web.Http.HttpPost]
         public HttpResponseMessage Post(UsuarioApoderado user)
         {

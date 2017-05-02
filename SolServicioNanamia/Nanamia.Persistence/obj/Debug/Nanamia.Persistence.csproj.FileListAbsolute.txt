@@ -1,0 +1,7 @@
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Persistence\bin\Debug\Nanamia.Persistence.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Persistence\bin\Debug\Nanamia.Persistence.pdb
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Persistence\bin\Debug\Nanamia.Model.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Persistence\bin\Debug\Nanamia.Model.pdb
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Persistence\obj\Debug\Nanamia.Persistence.csprojResolveAssemblyReference.cache
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Persistence\obj\Debug\Nanamia.Persistence.dll
+C:\UPC2017\DesarrolloDeAplicacionesMoviles\NanaMia\Desarrollo\Nanamia\SolServicioNanamia\Nanamia.Persistence\obj\Debug\Nanamia.Persistence.pdb

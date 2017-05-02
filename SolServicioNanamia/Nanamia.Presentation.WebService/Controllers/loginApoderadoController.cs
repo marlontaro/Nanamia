@@ -1,5 +1,6 @@
 ﻿using Nanamia.Business;
 using Nanamia.Model;
+using Nanamia.Presentation.WebService.Helper;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,15 @@ namespace Nanamia.Presentation.WebService.Controllers
 
         public loginapoderadoController() {
             usuarioApoderadoBusiness = new UsuarioApoderadoBusiness();
+        }
+
+        [HttpGet]
+        public HttpResponseMessage Get()
+        {
+            return new HttpResponseMessage(HttpStatusCode.BadRequest)
+            {
+                Content = new StringContent(JObject.FromObject(new MessageError()).ToString(), Encoding.UTF8, "application/json")
+            };
         }
 
         [HttpGet]
