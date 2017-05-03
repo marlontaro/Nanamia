@@ -1,10 +1,14 @@
 package pe.edu.upc.appapoderado.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -35,13 +40,15 @@ import pe.edu.upc.appapoderado.models.Usuario;
 import pe.edu.upc.appapoderado.util.Preferencias;
 
 public class PrincipalActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        InicioFragment.OnFragmentInteractionListener,
+        ServicioFragment.OnFragmentInteractionListener{
 
     Usuario usuario;
     TextView txtMenuNombre;
     TextView txtMenuCorreo;
     CircularImageView imgAvatar;
-
+    Button btnOtro;
     String TAG="Soen";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +117,22 @@ public class PrincipalActivity extends AppCompatActivity
             }
         }
 
+        InicioFragment frmHome =new InicioFragment();
+        IniciarFragment(frmHome);
+
+        btnOtro = (Button)findViewById(R.id.btnOtro);
+        if(btnOtro!=null){
+            btnOtro.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(),ServicioFragment.class);
+                    startActivity(intent);
+
+                }
+            });
+        }
     }
 
     @Override
@@ -151,9 +174,12 @@ public class PrincipalActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mnuInicio) {
+            InicioFragment frmHome =new InicioFragment();
+            IniciarFragment(frmHome);
             // Handle the camera action
         } else if (id == R.id.mnuSolicitar) {
-
+            ServicioFragment frmHome =new ServicioFragment();
+            IniciarFragment(frmHome);
         } else if (id == R.id.mnuEntrevistar) {
 
         } else if (id == R.id.mnuPerfil) {
@@ -178,5 +204,20 @@ public class PrincipalActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void IniciarFragment(Fragment frm){
+
+        FragmentManager fm = getSupportFragmentManager();
+        if (fm != null) {
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.frmPrincipal, frm);
+            ft.commit();
+        }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

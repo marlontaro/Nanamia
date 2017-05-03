@@ -10,7 +10,7 @@ public class NanaApi {
 
     public static String LOGIN_URL = "http://nanamia-001-site1.etempurl.com/api/loginapoderado";
     public static String USER_REGISTER_URL = "http://nanamia-001-site1.etempurl.com/api/usuarioapoderado";
-    //public static String USER_REGISTER_URL = "http://localhost:9284/api/usuarioapoderado";
+    public static String NANA_URL = "http://nanamia-001-site1.etempurl.com/api/nana";
     private Usuario currentUser;
 
 

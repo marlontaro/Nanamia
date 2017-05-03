@@ -4,32 +4,21 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.common.Priority;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import pe.edu.upc.appapoderado.R;
-import pe.edu.upc.appapoderado.adapters.HomeNanaAdapter;
-import pe.edu.upc.appapoderado.models.Nana;
-import pe.edu.upc.appapoderado.network.NanaApi;
 
-public class InicioFragment extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link ServicioFragment.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link ServicioFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class ServicioFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,10 +27,10 @@ public class InicioFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private String TAG="Soen";
+
     private OnFragmentInteractionListener mListener;
 
-    public InicioFragment() {
+    public ServicioFragment() {
         // Required empty public constructor
     }
 
@@ -51,11 +40,11 @@ public class InicioFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment InicioFragment.
+     * @return A new instance of fragment ServicioFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static InicioFragment newInstance(String param1, String param2) {
-        InicioFragment fragment = new InicioFragment();
+    public static ServicioFragment newInstance(String param1, String param2) {
+        ServicioFragment fragment = new ServicioFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,64 +61,11 @@ public class InicioFragment extends Fragment {
         }
     }
 
-    RecyclerView servicesRecyclerView;
-    RecyclerView.LayoutManager servicesLayoutManager;
-    HomeNanaAdapter serviceAdapter;
-    List<Nana> services;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_inicio, container, false);
-
-
-        services =  new ArrayList<>();
-        servicesLayoutManager = new LinearLayoutManager(this.getContext());
-        serviceAdapter = new HomeNanaAdapter();
-        serviceAdapter.setService(services);
-        servicesRecyclerView = (RecyclerView)view.findViewById(R.id.servicesRecyclerView);
-        servicesRecyclerView.setLayoutManager(servicesLayoutManager);
-        servicesRecyclerView.setAdapter(serviceAdapter);
-
-        Update();
-
-        return view;
-    }
-
-    private void Update(){
-        AndroidNetworking.get(NanaApi.NANA_URL)
-                .setTag(TAG)
-                .setPriority(Priority.LOW)
-                .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG,response.toString());
-                        services =  new ArrayList<>();
-
-                        if (response != null) {
-
-                        int length = response.length();
-
-                        for(int i = 0; i < length; i++) {
-                            try {
-                                services.add(Nana.build(response.getJSONObject(i)));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                        serviceAdapter.setService(services);
-                        serviceAdapter.notifyDataSetChanged();
-
-                        }
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-
-                    }
-                }) ;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_servicio, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
