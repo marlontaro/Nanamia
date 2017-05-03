@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">AppApoderado</string>
+    <string name="app_name">Nana Mia</string>
     <string name="action_settings">Settings</string>
+    <string name="facebook_app_id">419644085058882</string>
+    <string name="title_activity_start">Nana Mia </string>
+
 </resources>
