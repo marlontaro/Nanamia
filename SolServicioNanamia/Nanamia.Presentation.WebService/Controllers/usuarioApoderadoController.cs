@@ -31,7 +31,7 @@ namespace Nanamia.Presentation.WebService.Controllers
             };
         }
  
-        [System.Web.Http.HttpPost]
+        [HttpPost]
         public HttpResponseMessage Post(UsuarioApoderado user)
         {
 

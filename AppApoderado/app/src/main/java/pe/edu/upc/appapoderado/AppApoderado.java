@@ -13,15 +13,36 @@ import com.androidnetworking.AndroidNetworking;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import pe.edu.upc.appapoderado.models.Usuario;
+import pe.edu.upc.appapoderado.network.NanaApi;
+
 public class AppApoderado extends Application {
+
     @Override
     public void onCreate() {
         super.onCreate();
         AndroidNetworking.initialize(getApplicationContext());
-        ImprimirHash();
+    }
+
+    private static AppApoderado instance;
+    private NanaApi nanaApi= new NanaApi();
+    public AppApoderado() {
+        super();
+        instance = this;
+    }
+
+    public static AppApoderado getInstance() {
+        return instance;
     }
 
 
+    public void setCurrentUsuario(Usuario source) {
+        nanaApi.setCurrentUsuario(source);
+    }
+
+    public Usuario getCurrentUsuario() {
+        return nanaApi.getCurrentUsuario();
+    }
 
     private void ImprimirHash(){
 

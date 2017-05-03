@@ -1,7 +1,23 @@
 <resources>
-    <string name="app_name">Nana Mia</string>
+    <string name="app_name">Nana Mia!</string>
     <string name="action_settings">Settings</string>
     <string name="facebook_app_id">419644085058882</string>
-    <string name="title_activity_start">Nana Mia </string>
+    <string name="title_activity_start">Nana Mia!</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_registro">Registro</string>
 
+    <string name="IngreseCorreoElectronico">Correo</string>
+    <string name="IngreseContrasenia">Contraseña</string>
+    <string name="IngreseReContrasenia">Repetir Contraseña</string>
+    <string name="IngreseNombre">Nombre</string>
+    <string name="IngreseApellido">Apellidos</string>
+    <string name="IngreseDni">DNI</string>
+    <string name="IngreseCelular">Celular</string>
+    <string name="title_activity_principal">Nana Mia!</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

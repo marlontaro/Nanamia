@@ -5,11 +5,19 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -26,17 +34,31 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
+import pe.edu.upc.appapoderado.activities.LoginActivity;
+import pe.edu.upc.appapoderado.activities.PrincipalActivity;
+import pe.edu.upc.appapoderado.activities.RegistroActivity;
+import pe.edu.upc.appapoderado.models.Usuario;
+import pe.edu.upc.appapoderado.network.NanaApi;
+import pe.edu.upc.appapoderado.util.Preferencias;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class StartActivityFragment extends Fragment {
 
     public StartActivityFragment() {
+
     }
 
     CallbackManager callbackmanager;
+    String TAG="Soen";
+    TextView txtRegistrarse;
+    Button btnFBLogin;
+    Button btnEntrarCorreo;
+
     String Correo="";
-    String Persona ="";
+    String Nombre ="";
+    String Apellido ="";
     String Id="";
     String Token="";
 
@@ -49,10 +71,21 @@ public class StartActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v=inflater.inflate(R.layout.fragment_start, container, false);
 
-        Button button = (Button)v.findViewById(R.id.login_button);
-        button.setOnClickListener(new View.OnClickListener()
+        View v=inflater.inflate(R.layout.fragment_start, container, false);
+        txtRegistrarse = (TextView)v.findViewById(R.id.txtRegistrarse);
+        txtRegistrarse.setMovementMethod(LinkMovementMethod.getInstance());
+        txtRegistrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), RegistroActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFBLogin = (Button)v.findViewById(R.id.login_button);
+        btnFBLogin.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -61,6 +94,17 @@ public class StartActivityFragment extends Fragment {
             }
         });
 
+        btnEntrarCorreo = (Button)v.findViewById(R.id.btnEntrarCorreo);
+        btnEntrarCorreo.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
         return v;
 
     }
@@ -113,7 +157,9 @@ public class StartActivityFragment extends Fragment {
 
 
                                         try {
-                                            Persona = object.getString("name");
+                                            //Persona = object.getString("name");
+                                            Nombre =  object.getString("first_name");
+                                            Apellido =  object.getString("last_name");
                                             Correo = object.getString("email");
                                             Id= object.getString("id");
                                             Token = AccessToken.getCurrentAccessToken().getToken();
@@ -126,7 +172,7 @@ public class StartActivityFragment extends Fragment {
                                         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
 
                                         Bundle params = new Bundle();
-                                        params.putString("fields", "id,email,gender,cover,picture.type(large)");
+                                        params.putString("fields", "id,email,first_name,last_name,gender,cover,picture.type(large)");
                                         new GraphRequest(AccessToken.getCurrentAccessToken(), "me", params, HttpMethod.GET,
                                                 new GraphRequest.Callback() {
                                                     @Override
@@ -134,21 +180,81 @@ public class StartActivityFragment extends Fragment {
                                                         if (response != null) {
                                                             try {
                                                                 JSONObject data = response.getJSONObject();
+                                                                Log.d(TAG,data.toString());
+
+
                                                                 if (data.has("picture")) {
                                                                     String profilePicUrl = data.getJSONObject("picture").getJSONObject("data").getString("url");
+
                                                                     if (profilePicUrl.isEmpty() == false) {
 
-                                                                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-                                                                        SharedPreferences.Editor editor = preferences.edit();
-                                                                        editor.putString("fbimgURL",profilePicUrl);
-                                                                        editor.apply();
                                                                     }
 
-                                                                    /*GuardarRedes(Persona,Correo,Id,Token,2);
-                                                                    Preferencias.RegistrarTipoUsuario(getActivity().getSharedPreferences(Variables.Archivo,0),2);*/
+
 
 
                                                                 }
+
+                                                                JSONObject jsonObject = new JSONObject();
+                                                                try {
+                                                                    jsonObject.put("tipo", "2");
+                                                                    jsonObject.put("nombre", Nombre);
+                                                                    jsonObject.put("apellido", Apellido);
+                                                                    jsonObject.put("celular", "");
+                                                                    jsonObject.put("dni", "");
+                                                                    jsonObject.put("correo", Correo);
+                                                                    jsonObject.put("password", Token);
+                                                                } catch (JSONException e) {
+                                                                    e.printStackTrace();
+                                                                }
+
+                                                                AndroidNetworking.post(NanaApi.USER_REGISTER_URL)
+                                                                        .addJSONObjectBody(jsonObject)
+                                                                        .setPriority(Priority.LOW)
+                                                                        .setTag(TAG)
+                                                                        .build()
+                                                                        .getAsJSONObject(new JSONObjectRequestListener() {
+                                                                            @Override
+                                                                            public void onResponse(JSONObject response) {
+                                                                                try {
+                                                                                    if (response.getString("estado").equalsIgnoreCase("error")) {
+                                                                                        Log.d(TAG, response.getString("mensaje"));
+
+                                                                                        Toast.makeText(getContext(), response.getString("mensaje"),
+                                                                                                Toast.LENGTH_SHORT).show();
+
+                                                                                        return;
+                                                                                    }else{
+
+                                                                                        //crear objeto usuario
+                                                                                        Usuario user= new Usuario();
+                                                                                        user = Usuario.build(response);
+                                                                                        AppApoderado.getInstance().setCurrentUsuario(user);
+
+                                                                                        Preferencias.RegistrarUsuario(
+                                                                                                PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()),
+                                                                                                2, user.getToken());
+
+                                                                                        Intent intent = new Intent(getActivity(), PrincipalActivity.class);
+                                                                                        startActivity(intent);
+
+                                                                                    }
+
+
+                                                                                } catch (JSONException e) {
+                                                                                    e.printStackTrace();
+                                                                                }
+                                                                            }
+
+                                                                            @Override
+                                                                            public void onError(ANError anError) {
+                                                                                Log.d(TAG, anError.getLocalizedMessage());
+                                                                            }
+                                                                        });
+
+
+
+
                                                             } catch (Exception e) {
                                                                 e.printStackTrace();
                                                             }
@@ -162,9 +268,11 @@ public class StartActivityFragment extends Fragment {
                                     }
                                 });
                         Bundle parameters = new Bundle();
-                        parameters.putString("fields", "id,name,email");
+                        parameters.putString("fields", "id, name, email,first_name,last_name");
                         request.setParameters(parameters);
                         request.executeAsync();
+
+
 
 
                     }

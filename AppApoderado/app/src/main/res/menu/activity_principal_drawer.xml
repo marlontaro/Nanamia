@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/mnuInicio"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/mnuSolicitar"
+            android:icon="@drawable/ic_menu_solicitud"
+            android:title="Solicitar" />
+        <item
+            android:id="@+id/mnuEntrevistar"
+            android:icon="@drawable/ic_menu_entrevista"
+            android:title="Entrevistar" />
+        <item
+            android:id="@+id/mnuPerfil"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Perfil" />
+
+        <item
+            android:id="@+id/mnuCerrar"
+            android:icon="@drawable/ic_menu_logout"
+            android:title="Cerrar sesión" />
+    </group>
+
+
+
+</menu>

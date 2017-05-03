@@ -14,6 +14,7 @@ namespace Nanamia.Model
         public string celular { get; set; }
         public string correo { get; set; }
         public string token { get; set; }
+        public string avatar { get; set; }
 
         public UsuarioApoderadoOutput() {
             nombre = String.Empty;
@@ -24,6 +25,7 @@ namespace Nanamia.Model
             token = String.Empty;
             mensaje = String.Empty;
             estado = Status.Error;
+            avatar = @"http://nanamia-001-site1.etempurl.com/image/defaultuser.png";
         }
     }
 }

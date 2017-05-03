@@ -107,6 +107,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\defaultuser.png" />
     <Content Include="image\nums22414foto36.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -121,6 +122,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\loginapoderadoController.cs" />
+    <Compile Include="Controllers\nanaController.cs" />
     <Compile Include="Controllers\usuarioapoderadoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,6 +151,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\nana\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nanamia.Business\Nanamia.Business.csproj">

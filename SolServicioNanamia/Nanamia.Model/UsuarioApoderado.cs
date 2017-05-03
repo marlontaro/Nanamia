@@ -8,12 +8,12 @@ namespace Nanamia.Model
 {
     public class UsuarioApoderado
     {
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string celular { get; set; }
-        public string dni { get; set; }
-        public int tipo { get; set; }
-        public string correo { get; set; }
-        public string password { get; set; }        
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Celular { get; set; }
+        public string Dni { get; set; }
+        public int Tipo { get; set; }
+        public string Correo { get; set; }
+        public string Password { get; set; }        
     }
 }

@@ -21,15 +21,15 @@ namespace Nanamia.Persistence
                 using (IDbConnection connection = OpenConnection())
                 {
                     var oParams = new DynamicParameters();
-                    oParams.Add("Nombre", user.nombre);
-                    oParams.Add("Apellido", user.apellido);
-                    oParams.Add("Celular", user.celular);
+                    oParams.Add("Nombre", user.Nombre);
+                    oParams.Add("Apellido", user.Apellido);
+                    oParams.Add("Celular", user.Celular);
 
-                    oParams.Add("Dni", user.dni);
-                    oParams.Add("Tipo", user.tipo);
-                    oParams.Add("Correo", user.correo);
+                    oParams.Add("Dni", user.Dni);
+                    oParams.Add("Tipo", user.Tipo);
+                    oParams.Add("Correo", user.Correo);
 
-                    oParams.Add("Password", user.password);
+                    oParams.Add("Password", user.Password);
 
                     login = connection.Query<UsuarioApoderadoOutput>(
                                "uspUsuarioApoderadoCreate",
