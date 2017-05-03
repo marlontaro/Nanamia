@@ -64,6 +64,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="pe.edu.upc.appapoderado.StartActivity" />
         </activity>
+        <activity
+            android:name=".activities.SeleccionarnanaActivity"
+            android:label="@string/title_activity_seleccionarnana"
+            android:parentActivityName=".activities.PrincipalActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pe.edu.upc.appapoderado.activities.PrincipalActivity" />
+        </activity>
     </application>
 
 </manifest>

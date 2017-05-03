@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/serviceCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/card_margin"
+    app:cardCornerRadius="@dimen/corner_radius">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        android:orientation="horizontal">
+        <com.androidnetworking.widget.ANImageView
+            android:id="@+id/pictureANImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:layout_marginBottom="5dp"
+                android:id="@+id/nameTextView"/>
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp">
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:gravity="left">
+                    <TableLayout
+                        android:layout_marginRight="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="left">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="18dp"
+                                android:layout_marginBottom="5dp"
+                                android:id="@+id/edadTextView"/>
+                        </TableRow>
+                    </TableLayout>
+
+                    <TableLayout
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" >
+                        <TableRow
+                            android:layout_marginRight="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="right">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="18dp"
+                                android:layout_marginBottom="5dp"
+                                android:id="@+id/puntajeTextView"                                />
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+
+                                android:textAlignment="center"
+                                android:layout_gravity="center"
+                                android:background="@drawable/iconostar"
+                                />
+
+                        </TableRow>
+                    </TableLayout>
+
+
+
+                </TableRow>
+            </TableLayout>
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

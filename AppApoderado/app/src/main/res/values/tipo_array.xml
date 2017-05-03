@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipo_array">
+        <item>Tiempo Completo</item>
+        <item>Part Time</item>
+        <item>Lunes - Viernes</item>
+    </string-array>
+</resources>

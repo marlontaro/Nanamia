@@ -14,10 +14,16 @@
     <string name="IngreseDni">DNI</string>
     <string name="IngreseCelular">Celular</string>
     <string name="title_activity_principal">Nana Mia!</string>
+    <string name="IngreseHijos">Hijos</string>
+    <string name="IngreseDireccion">Direccion</string>
+    <string name="IngreseCita">Cita</string>
+    <string name="IngreseSueldoMin">Min (S/.)</string>
+    <string name="IngreseSueldoMax">Max (S/.)</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_seleccionarnana">SeleccionarnanaActivity</string>
 </resources>

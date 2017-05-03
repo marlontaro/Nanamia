@@ -1,15 +1,19 @@
 package pe.edu.upc.appapoderado.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -40,7 +44,7 @@ public class InicioFragment extends Fragment {
     private String mParam2;
     private String TAG="Soen";
     private OnFragmentInteractionListener mListener;
-
+    Button btnOtro;
     public InicioFragment() {
         // Required empty public constructor
     }
@@ -93,8 +97,32 @@ public class InicioFragment extends Fragment {
 
         Update();
 
+        btnOtro = (Button)view.findViewById(R.id.btnOtro);
+        if(btnOtro!=null){
+            btnOtro.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    ServicioFragment chatFragment = new ServicioFragment();
+                    IniciarFragment(chatFragment);
+                }
+            });
+        }
+
         return view;
     }
+
+    private void IniciarFragment(Fragment frm){
+
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        if (fm != null) {
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.frmPrincipal, frm).addToBackStack(null);
+            ft.commit();
+        }
+    }
+
 
     private void Update(){
         AndroidNetworking.get(NanaApi.NANA_URL)

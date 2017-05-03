@@ -48,7 +48,7 @@ public class PrincipalActivity extends AppCompatActivity
     TextView txtMenuNombre;
     TextView txtMenuCorreo;
     CircularImageView imgAvatar;
-    Button btnOtro;
+
     String TAG="Soen";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,19 +120,7 @@ public class PrincipalActivity extends AppCompatActivity
         InicioFragment frmHome =new InicioFragment();
         IniciarFragment(frmHome);
 
-        btnOtro = (Button)findViewById(R.id.btnOtro);
-        if(btnOtro!=null){
-            btnOtro.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    Intent intent = new Intent(getApplicationContext(),ServicioFragment.class);
-                    startActivity(intent);
 
-                }
-            });
-        }
     }
 
     @Override
