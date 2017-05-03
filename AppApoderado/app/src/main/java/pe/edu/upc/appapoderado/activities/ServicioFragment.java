@@ -1,6 +1,7 @@
 package pe.edu.upc.appapoderado.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import pe.edu.upc.appapoderado.R;
@@ -31,7 +33,7 @@ public class ServicioFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-
+    Button btnSolicitar;
     public ServicioFragment() {
         // Required empty public constructor
     }
@@ -76,6 +78,19 @@ public class ServicioFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        btnSolicitar=(Button)view.findViewById(R.id.btnSolicitar);
+        btnSolicitar.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getContext(),SeleccionarnanaActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+
         return view;
     }
 

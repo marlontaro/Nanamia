@@ -11,6 +11,8 @@ public class NanaApi {
     public static String LOGIN_URL = "http://nanamia-001-site1.etempurl.com/api/loginapoderado";
     public static String USER_REGISTER_URL = "http://nanamia-001-site1.etempurl.com/api/usuarioapoderado";
     public static String NANA_URL = "http://nanamia-001-site1.etempurl.com/api/nana";
+    public static String SOLICITUD_URL = "http://nanamia-001-site1.etempurl.com/api/solicitud";
+
     private Usuario currentUser;
 
 
