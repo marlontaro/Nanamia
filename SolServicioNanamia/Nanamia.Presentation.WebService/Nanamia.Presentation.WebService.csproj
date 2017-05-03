@@ -126,6 +126,7 @@
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\loginapoderadoController.cs" />
     <Compile Include="Controllers\nanaController.cs" />
+    <Compile Include="Controllers\solicitudController.cs" />
     <Compile Include="Controllers\usuarioapoderadoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -126,7 +126,56 @@ select
 nan.IdPersona as Id,
 per.Nombre,
 per.Apellido,
-(year(getdate())-year(per.FechaNacimiento)) as edad
+(year(getdate())-year(per.FechaNacimiento)) as Edad,
+nan.Puntaje,
+nan.[Experiencia],
+nan.Avatar,
+nan.[SalarioMinimo],
+nan.[SalarioMaximo],
+nan.[PrimerosAuxilio],
+nan.[CuidadoEspecial]
 from [dbo].[Nana] nan
 inner join Persona per
 on nan.IdPersona = per.IdPersona
+go
+
+alter proc uspGetToken
+@token varchar(100),
+@idPersona int output
+as
+set @idPersona = isnull((
+					select IdPersona from [dbo].[Usuario]
+					where token = @token),0)
+go
+ 
+alter proc uspSolicitudCreate
+@TipoContrato int, 
+@PrimerosAuxilio bit, 
+@CuidadoEspecial bit, 
+@SueldoMinimo decimal(10,2), 
+@SueldoMaximo decimal(10,2), 
+@Direccion varchar(500), 
+@Longitud varchar(500), 
+@Latitud varchar(500), 
+@Token varchar(100),
+@IdNana int
+
+as
+declare @IdSolicitud int 
+declare @IdPersona int 
+set @IdSolicitud= 0
+set @IdPersona = 0
+set @IdPersona = isnull((
+					select IdPersona from [dbo].[Usuario]
+					where token = @token),0)
+insert into [dbo].[Solicitud](
+FechaCreacion, TipoContrato, PrimerosAuxilio, 
+CuidadoEspecial, SueldoMinimo, SueldoMaximo,
+ Direccion, Longitud, Latitud, Estado, IdApoderado, IdNana)
+ values(getdate(), @TipoContrato, @PrimerosAuxilio, 
+@CuidadoEspecial , @SueldoMinimo , @SueldoMaximo ,
+ @Direccion, @Longitud , @Latitud , 1,@IdPersona ,@IdNana)
+
+ set @IdSolicitud= SCOPE_IDENTITY()
+
+ select @IdSolicitud

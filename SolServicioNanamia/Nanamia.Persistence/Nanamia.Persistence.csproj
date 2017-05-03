@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BaseRepository.cs" />
     <Compile Include="NanaRepository.cs" />
+    <Compile Include="SolicitudRepository.cs" />
     <Compile Include="UsuarioApoderadoRepository.cs" />
     <Compile Include="Dapper\SqlMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
