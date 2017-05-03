@@ -45,6 +45,7 @@
     <Compile Include="CheckToken.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataInd.cs" />
+    <Compile Include="Nana.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="StatusToken.cs" />
     <Compile Include="UsuarioApoderado.cs" />
