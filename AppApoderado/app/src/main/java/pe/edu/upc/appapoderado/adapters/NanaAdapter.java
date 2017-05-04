@@ -103,7 +103,7 @@ public class NanaAdapter extends RecyclerView.Adapter<NanaAdapter.ViewHolder> {
 
                                         //crear objeto usuario
 
-                                       
+
                                         Intent serviceIntent = new Intent(view.getContext(), PrincipalActivity.class);
 
                                         view.getContext().startActivity(serviceIntent);
